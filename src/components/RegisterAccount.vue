@@ -69,9 +69,10 @@
                 <b-form-group label="Relationship:" id="input-group">
                     <b-form-input id="input-1" v-model="acc.emergency_contact_relationship" type="text" />
                 </b-form-group>
-                 <b-form-group label="Date of Birth:" id="input-group">
-                <b-form-datepicker id="input-1" v-model="acc.dob" type="text" required></b-form-datepicker>
-            </b-form-group>
+
+                <b-form-group label="Date of Birth:" description="*Please enter using format DDMMYYYY" >
+                    <b-form-input v-model="acc.dob" type="text" required />
+                </b-form-group>
           
                 </b-col></b-row>
                   <div style="display:flex; justify-content:center">
@@ -97,6 +98,7 @@
     import { sha256 } from 'js-sha256';
     import database from '../firebase.js'
     import axios from 'axios'
+
     import { BFormGroup, BButton, BForm, BFormCheckbox, BFormCheckboxGroup, BFormSelect, BFormInput } from "bootstrap-vue";
     export default {
         data() {
@@ -113,7 +115,7 @@
                     emergency_contact: '',
                     name: '',
                     gender: null,
-                    dob:'',
+                    dob:null,
                     contact: '',
                     address: '', 
                 },
@@ -153,7 +155,9 @@
                     database.collection('accounts').doc(this.acc.username).get().then(async (doc) => {
                         if (!doc.data()) {
                             //Upload profile image and get url
-                            await this.onUpload()
+                            if (this.selectedFile != null) {
+                                await this.onUpload()
+                            }
                             var account = {
                                 username: this.acc.username,
                                 password: sha256(this.acc.password),
