@@ -189,7 +189,9 @@
                 var username = localStorage.getItem("username")
                 this.rqst.organiser_email = username;
                 var d = new Date();
-                await this.onUpload(this.organiser_email + d)
+                if (this.selectedFile != null) {
+                    await this.onUpload(this.organiser_email + d)
+                }
                 database.collection('events').add(this.rqst).then((doc) => {
                     var id = doc.id;
                     database.collection("accounts").doc(username).get().then(doc => {
