@@ -5,7 +5,7 @@
   <img src="https://user-images.githubusercontent.com/50550240/99210865-e2cb8880-2801-11eb-957e-63ddc118cdf6.png"/>
 </p>
 
-iHelp is a web application that connects volunteers and donors with underprivileged households and individuals in Singapore. Due to Covid-19 safe distancing measures, many community services initiatives are suspended due to logitics and manpower limitations. The web application aims to streamline and automate the process of of matching this two groups during this unprecedented times. 
+iHelp is a web application that connects volunteers and donors with underprivileged households and individuals in Singapore. Due to Covid-19 safe distancing measures, many community services initiatives are suspended due to logitics and manpower limitations. The web application aims to streamline and automate the process of matching this two groups during this unprecedented times. 
 
 Visit our web application [here](https://bt3103-e1798.web.app) 
 
